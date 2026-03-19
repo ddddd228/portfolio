@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кейс — Данила Аракелов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./case.css" />
+  </head>
+  <body class="case-page">
+    <div class="case-layout">
+      <aside class="case-sidebar">
+        <div class="sidebar__header">
+          <h1>Данила Аракелов</h1>
+          <p>staff &amp; founding product designer</p>
+        </div>
+        <div class="sidebar__group">
+          <p class="sidebar__label">Опыт работы (6+ лет)</p>
+          <nav class="sidebar__nav" aria-label="Навигация по кейсам">
+            <ul id="case-experience-nav"></ul>
+          </nav>
+        </div>
+        <div class="sidebar__divider"></div>
+        <div class="sidebar__group">
+          <p class="sidebar__label">Тестовые &amp; конкурсы</p>
+          <ul class="sidebar__secondary" id="case-secondary-nav"></ul>
+        </div>
+      </aside>
+
+      <main class="case-main">
+        <div class="case-topbar">
+          <a class="case-back" href="#" id="case-back">назад</a>
+          <a class="telegram-button" href="https://t.me/ddesigner02" target="_blank" rel="noopener noreferrer" aria-label="Телеграм">телеграм</a>
+        </div>
+        <div class="case-scroll">
+          <article class="case-content" id="case-content"></article>
+        </div>
+      </main>
+    </div>
+
+    <div class="case-mobile">
+      <header class="case-header" id="case-header">
+        <div>
+          <h1>Данила Аракелов</h1>
+          <p>staff &amp; founding product designer</p>
+        </div>
+        <button class="menu-button" type="button" id="case-menu-toggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <div class="mobile-menu" id="case-mobile-menu" aria-hidden="true">
+        <div class="mobile-menu__panel">
+          <div class="mobile-menu__header">
+            <p>Навигация</p>
+            <button type="button" class="mobile-menu__close" id="case-menu-close" aria-label="Закрыть меню">×</button>
+          </div>
+          <div class="mobile-menu__group">
+            <p class="sidebar__label">Опыт работы (6+ лет)</p>
+            <ul id="case-mobile-experience-nav"></ul>
+          </div>
+          <div class="mobile-menu__group">
+            <p class="sidebar__label">Тестовые &amp; конкурсы</p>
+            <ul id="case-mobile-secondary-nav"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="case-mobile-scroll">
+        <article class="case-content" id="case-content-mobile"></article>
+      </div>
+      <footer class="case-footer" id="case-footer">
+        <button class="ghost-button" type="button" id="case-next-btn">следующий кейс</button>
+        <a class="telegram-button telegram-button--mobile" href="https://t.me/ddesigner02" target="_blank" rel="noopener noreferrer" aria-label="Телеграм">телеграм</a>
+      </footer>
+    </div>
+
+    <script src="./case-data.js"></script>
+    <script src="./case.js"></script>
+  </body>
+</html>

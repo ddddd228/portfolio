@@ -1,0 +1,806 @@
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #313131;
+  --muted: #6f6f6f;
+  --muted-soft: rgba(111, 111, 111, 0.8);
+  --line: #e8e8e8;
+  --link: #0062ff;
+  --shadow-lg: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --sidebar-w: 300px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* ─── APP SHELL ──────────────────────────────────────────────── */
+
+.app {
+  min-height: 100dvh;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────────────── */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: var(--sidebar-w);
+  height: 100dvh;
+  padding: 40px 32px 32px;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+.sidebar__header h1,
+.mobile-topbar h1 {
+  margin: 0 0 2px;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.sidebar__header p,
+.mobile-topbar p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.sidebar__group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar__label {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar__divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 -4px;
+}
+
+.sidebar__nav ul,
+.sidebar__secondary,
+#mobile-experience-nav,
+#mobile-secondary-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ─── NAV ITEMS ──────────────────────────────────────────────── */
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text);
+}
+
+.nav-item.is-active {
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-item.is-disabled {
+  cursor: default;
+}
+
+.nav-item.is-disabled:hover {
+  color: var(--muted-soft);
+  background: transparent;
+}
+
+.nav-item__label {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* ─── NAV ICONS ──────────────────────────────────────────────── */
+
+.nav-icon {
+  position: relative;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nav-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Мелкие иконки в сайдбаре: без цветной подложки (emcd — чёрный под прозрачные поля PNG) */
+.nav-icon:has(> img):not(.nav-icon--emcd) {
+  background: transparent !important;
+}
+
+.nav-icon:has(> img) > img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.nav-icon--emcd {
+  background: #000;
+}
+
+.nav-icon--emcd img {
+  position: absolute;
+  inset: 0;
+}
+
+.nav-icon--alpha {
+  display: grid;
+  place-items: center;
+  background: #f12d15;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.nav-icon--overchat,
+.company-logo--overchat {
+  display: grid;
+  place-items: center;
+  background: #4d3afb;
+}
+
+.nav-icon--podeli,
+.company-logo--podeli {
+  display: grid;
+  place-items: center;
+  background: #ff4a2f;
+}
+
+.nav-icon--chums {
+  display: grid;
+  place-items: center;
+  background: #741fff;
+}
+
+.nav-icon--secondary {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.secondary-yandex  { background: #ffdb00; color: #111; }
+.secondary-olimpbet { background: #f33; }
+.secondary-gazprom { background: #2d75f6; }
+.secondary-1win    { background: #111; }
+.secondary-findmykids { background: #e7f4ff; color: #1a7ef9; }
+
+/* ─── DESKTOP CONTENT ────────────────────────────────────────── */
+
+.desktop-content {
+  margin-left: var(--sidebar-w);
+  padding: 0;
+}
+
+/* ─── TELEGRAM BUTTON ────────────────────────────────────────── */
+
+.telegram-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 4px 18px;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+
+.telegram-button:hover {
+  opacity: 0.8;
+}
+
+.telegram-button--desktop {
+  position: fixed;
+  top: 32px;
+  right: 40px;
+  z-index: 15;
+}
+
+/* ─── COMPANY SECTION ────────────────────────────────────────── */
+
+.company-section {
+  display: flex;
+  flex-direction: column;
+  padding: 72px 60px 72px 52px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 0;
+}
+
+.company-section:last-child {
+  border-bottom: none;
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.company-header > .company-logo,
+.company-header > .company-meta {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ─── COMPANY LOGO ───────────────────────────────────────────── */
+
+.company-logo {
+  position: relative;
+  flex: 0 0 64px;
+  width: 64px;
+  min-width: 64px;
+  height: 64px;
+  min-height: 64px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Картинка заполняет весь бокс 64×64 (как в макете заголовка секции) */
+.company-logo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Лого с цветным фоном (inline bg) — картинка по центру с отступами */
+.company-logo[style*="background"] > img,
+.mobile-company__logo[style*="background"] > img {
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* PNG в шапке: без цветной подложки если нет inline background */
+.company-logo:has(> img):not([style*="background"]) {
+  background: transparent !important;
+}
+
+/* Мелкий emcd в сайдбаре: один PNG — по-прежнему contain в 28px */
+.nav-icon--emcd:has(> img:only-of-type) > img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.company-logo--alpha {
+  display: grid;
+  place-items: center;
+  background: #f12d15;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.company-meta h2,
+.mobile-company__title {
+  margin: 0 0 4px;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.company-meta p,
+.mobile-company__role {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ─── ROLE BADGE ─────────────────────────────────────────────── */
+
+.company-role--offer,
+.mobile-company__role--offer {
+  color: #1bc800 !important;
+}
+
+/* ─── EXTERNAL LINK ──────────────────────────────────────────── */
+
+.company-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.company-external-link__anchor {
+  color: var(--link);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.company-external-link__anchor:hover {
+  opacity: 0.75;
+}
+
+.company-external-link__icon::before {
+  content: "↗";
+  font-size: 12px;
+  color: var(--link);
+  opacity: 0.7;
+}
+
+.company-external-link--mobile {
+  margin-bottom: 20px;
+}
+
+/* ─── DESCRIPTION ────────────────────────────────────────────── */
+
+.company-description,
+.mobile-company__description {
+  max-width: 640px;
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ─── CASE LINKS ─────────────────────────────────────────────── */
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 28px;
+}
+
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--link);
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+
+.case-link:hover {
+  opacity: 0.75;
+}
+
+.case-link::after {
+  content: "↗";
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ─── SCREENS GRID ───────────────────────────────────────────── */
+
+.screens-grid {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+}
+
+.screen-card {
+  overflow: hidden;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.screen-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.screen-card[data-width="wide"]    { width: 240px; }
+.screen-card[data-width="regular"] { width: 186px; }
+.screen-card[data-width="narrow"]  { width: 170px; }
+
+/* ─── MOBILE CONTENT ─────────────────────────────────────────── */
+
+.mobile-content {
+  display: none;
+}
+
+.mobile-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  background: var(--bg);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.menu-button {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 0 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+}
+
+/* ─── MOBILE COMPANY ─────────────────────────────────────────── */
+
+.mobile-company {
+  padding: 24px 20px 0;
+}
+
+.mobile-company__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mobile-company__logo {
+  position: relative;
+  flex: 0 0 64px;
+  width: 64px;
+  min-width: 64px;
+  height: 64px;
+  min-height: 64px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.mobile-company__logo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.mobile-company__logo:has(> img):not([style*="background"]) {
+  background: transparent !important;
+}
+
+.mobile-company__logo.company-logo--alpha {
+  font-size: 34px;
+}
+
+
+.mobile-company__links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0 16px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobile-company__links::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-screens {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.mobile-screens::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-screens .screen-card {
+  flex: 0 0 140px;
+  border-radius: 10px;
+}
+
+/* ─── MOBILE ACTIONS ─────────────────────────────────────────── */
+
+.mobile-actions {
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ghost-button {
+  width: 100%;
+  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background: #ebebeb;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ghost-button:hover {
+  background: #e0e0e0;
+}
+
+.telegram-button--mobile {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 12px;
+}
+
+/* ─── MOBILE MENU ────────────────────────────────────────────── */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.mobile-menu.is-open {
+  display: block;
+}
+
+.mobile-menu__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(100%, 300px);
+  height: 100%;
+  padding: 24px 20px;
+  background: var(--bg);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.mobile-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.mobile-menu__header p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.mobile-menu__close {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mobile-menu__group {
+  margin-bottom: 28px;
+}
+
+.mobile-menu__group ul {
+  margin-top: 12px;
+}
+
+/* ─── CUSTOM SCROLLBAR ───────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+/* ─── BREAKPOINTS ────────────────────────────────────────────── */
+
+@media (max-width: 899px) {
+  .sidebar,
+  .desktop-content {
+    display: none;
+  }
+
+  .mobile-content {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1100px) {
+  :root {
+    --sidebar-w: 260px;
+  }
+
+  .sidebar {
+    padding-inline: 20px;
+  }
+
+  .company-section {
+    padding: 56px 40px 56px 40px;
+  }
+
+  .screen-card[data-width="wide"]    { width: 200px; }
+  .screen-card[data-width="regular"] { width: 158px; }
+  .screen-card[data-width="narrow"]  { width: 144px; }
+}
+
+@media (min-width: 1101px) and (max-width: 1440px) {
+  .company-section {
+    padding: 64px 56px 64px 52px;
+  }
+}
+
+/* ── Keyframes ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideFromLeft {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Sidebar entrance ──────────────────────────── */
+.sidebar {
+  animation: slideFromLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.sidebar > * {
+  animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.sidebar > *:nth-child(1) { animation-delay: 0.08s; }
+.sidebar > *:nth-child(2) { animation-delay: 0.14s; }
+.sidebar > *:nth-child(3) { animation-delay: 0.19s; }
+.sidebar > *:nth-child(4) { animation-delay: 0.23s; }
+
+/* ── Desktop button entrance ───────────────────── */
+.telegram-button--desktop {
+  animation: fadeIn 0.4s 0.3s ease both;
+}
+
+/* ── Mobile entrance ───────────────────────────── */
+.mobile-topbar {
+  animation: fadeUp 0.45s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.mobile-actions {
+  animation: fadeUp 0.45s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Scroll reveal ─────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Respect reduced motion ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .sidebar > *, .telegram-button--desktop,
+  .mobile-topbar, .mobile-actions {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

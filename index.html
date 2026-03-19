@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Данила Аракелов - Портфолио</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <h1>Данила Аракелов</h1>
+          <p>staff &amp; founding product designer</p>
+        </div>
+
+        <div class="sidebar__group">
+          <p class="sidebar__label">Опыт работы (6+ лет)</p>
+          <nav class="sidebar__nav" aria-label="Навигация по кейсам">
+            <ul id="experience-nav"></ul>
+          </nav>
+        </div>
+
+        <div class="sidebar__divider"></div>
+
+        <div class="sidebar__group">
+          <p class="sidebar__label">Тестовые &amp; конкурсы</p>
+          <ul class="sidebar__secondary" id="secondary-nav"></ul>
+        </div>
+      </aside>
+
+      <main class="desktop-content">
+        <a class="telegram-button telegram-button--desktop" href="#" aria-label="Телеграм">
+          телеграм
+        </a>
+        <div id="desktop-sections"></div>
+      </main>
+
+      <main class="mobile-content">
+        <header class="mobile-topbar">
+          <div>
+            <h1>Данила Аракелов</h1>
+            <p>staff &amp; founding product designer</p>
+          </div>
+          <button class="menu-button" type="button" id="menu-toggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </header>
+
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+          <div class="mobile-menu__panel">
+            <div class="mobile-menu__header">
+              <p>Навигация</p>
+              <button type="button" class="mobile-menu__close" id="menu-close" aria-label="Закрыть меню">
+                ×
+              </button>
+            </div>
+
+            <div class="mobile-menu__group">
+              <p class="sidebar__label">Опыт работы (6+ лет)</p>
+              <ul id="mobile-experience-nav"></ul>
+            </div>
+
+            <div class="mobile-menu__group">
+              <p class="sidebar__label">Тестовые &amp; конкурсы</p>
+              <ul id="mobile-secondary-nav"></ul>
+            </div>
+          </div>
+        </div>
+
+        <section class="mobile-company" id="mobile-company"></section>
+
+        <div class="mobile-actions">
+          <button class="ghost-button" id="next-company" type="button">дальше</button>
+          <a class="telegram-button telegram-button--mobile" href="#" aria-label="Телеграм">
+            телеграм
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
