@@ -445,6 +445,127 @@ window.CASE_PAGES = {
       ],
     },
   ],
+  overchat: [
+    {
+      title: "Как мы увеличили конверсию в регистрацию\nи вход в маркетплейс ИИ-моделей",
+      tags: ["#кейсы", "#overchat", "#2025"],
+      sections: [
+        {
+          beforeLabel: "as is (как было раньше)",
+          images: [
+            { src: "assets/overchat-asis-main.png" },
+            { src: "assets/overchat-asis-side.png" },
+          ],
+          mediaLayout: "asis-wide",
+        },
+        {
+          heading: "Задача и контекст",
+          body: "Маркетплейс моделей ИИ по подписке разного уровня (премиум, медиум и т.д.), отличающихся количеством запросов.",
+          body2: "Повысить конверсию в регистрацию, использования продукта и первый вход. Снизить drop-off на этапе авторизации и улучшить удержание.",
+        },
+        {
+          images: [
+            { src: "assets/overchat-phone1.png", w: 136, h: 295 },
+            { src: "assets/overchat-phone2.png", w: 136, h: 294 },
+            { src: "assets/overchat-phone3.png", w: 136, h: 294 },
+          ],
+          mediaLayout: "triple-phones",
+        },
+        {
+          heading: "Проблема",
+          blocks: [
+            {
+              body: "Из 2000+ пользователей в месяц:",
+              bulletItems: [
+                "только ~300 доходят до регистрации",
+                "после 3–4 запросов пользователи не возвращаются",
+              ],
+            },
+            {
+              body: "Основные причины:",
+              bulletItems: [
+                "нет понимания ценности до входа",
+                "сложный и перегруженный процесс авторизации",
+              ],
+            },
+          ],
+        },
+        {
+          images: [
+            { src: "assets/overchat-research.png", w: 619, h: 387 },
+          ],
+          mediaLayout: "single-centered",
+        },
+        {
+          heading: "Приоритезация гипотезы вследствии ресерча и аудита",
+          body: "В первую итерацию взяли решения с максимальным impact / effort.",
+          hypothesisCards: [
+            {
+              metrics: [
+                { text: "DAU",          bg: "rgba(255,239,133,0.7)" },
+                { text: "MAU",          bg: "rgba(249,133,255,0.7)" },
+                { text: "Trial to paid",bg: "rgba(133,210,255,0.7)" },
+              ],
+              description: "Валидация: Dropdown с выбором почты ускорит вход, снизит фрод и повысит конверсию.",
+              ratio: "коэф: 3/1=3",
+            },
+            {
+              metrics: [
+                { text: "Time spent", bg: "rgba(255,133,133,0.7)" },
+                { text: "CR",         bg: "rgba(139,133,255,0.7)" },
+              ],
+              description: "Magic link: Вход по magic link сократит время на регистрацию и уменьшит drop-off.",
+              ratio: "коэф: 3/3=1",
+            },
+            {
+              metrics: [
+                { text: "Session freq per user", bg: "rgba(135,255,133,0.7)" },
+                { text: "CR",                    bg: "rgba(139,133,255,0.7)" },
+              ],
+              description: "Фидбек: Подсказки по поиску письма повысят конверсию в следующий шаг и ускорят вход.",
+              ratio: "коэф: 3/2=1,5",
+            },
+            {
+              metrics: [
+                { text: "Trial to paid", bg: "rgba(133,210,255,0.7)" },
+                { text: "CR",            bg: "rgba(139,133,255,0.7)" },
+              ],
+              description: "Ценность: Демонстрация ценности продукта на входе повысит trial-to-paid и общую конверсию.",
+              ratio: "коэф: 3/1=3",
+            },
+          ],
+          body2: "В итоге в Hi-Fi, гипотезы 1/2 и гипотезы 3/4, так как технически их было легче сделать. Решили катить их аккуратно А/Б тестом. Все остальные гипотезы оставляем на будущее, кладем в бэклог и вернемся к ним после запуска.",
+        },
+        {
+          heading: "Итоговая концепция",
+          body: "Показали ценность до входа — интерфейс и сценарии использования",
+          images: [
+            { src: "assets/overchat-concept1.png", w: 507, h: 293 },
+          ],
+          mediaLayout: "single-centered",
+        },
+        {
+          body: "Упростили авторизацию — соц. логины, меньше шагов. Добавили magic link — быстрый вход без пароля",
+          images: [
+            { src: "assets/overchat-concept2.png", w: 507, h: 293 },
+          ],
+          mediaLayout: "single-centered",
+        },
+        {
+          body: "Улучшили подтверждение email — подсказки и прозрачность.\nСнизили friction и ускорили путь к первому опыту",
+          images: [
+            { src: "assets/overchat-concept3.png", w: 507, h: 293 },
+          ],
+          mediaLayout: "single-centered",
+        },
+      ],
+      results: [
+        "↑ CSAT на 30%",
+        "↑ Trial-to-paid увеличился на 1,5 раза",
+        "↑ Значимое увеличение MAU на 15%",
+      ],
+    },
+  ],
 };
 
 /** Ссылка на главную для кнопки «назад» по компании (id секции на index = section-{id}) */

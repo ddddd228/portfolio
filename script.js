@@ -46,6 +46,10 @@ const experiences = [
       "Работал единственным дизайнером: сформировал визуальный стиль и наладил взаимодействие между CPO и разработкой. За месяц с командой запустили дизайн-систему, переработали логику продукта и подготовили релиз в App Store и Google Play. Внедрил HADI-циклы с маркетингом.",
     icon: "overchat",
     logo: "overchat",
+    cases: [
+      { title: "увеличение конверсии в регистрацию", pending: false },
+      { title: "создание кроссплатформенной дс", pending: true },
+    ],
     screens: [
       { src: "assets/1overchat-screens.png", width: "regular" },
       { src: "assets/2overchat-screens.png", width: "regular" },
@@ -98,7 +102,7 @@ const secondaryCompanies = [
     roleVariant: "default",
     description: "Спроектировать масштабируемую карточку аренды в сервисе «Бери Заряд», которая позволит арендовать 2+ пауэрбанков с одного аккаунта и показать полный пользовательский флоу аренды нескольких устройств с учетом ограничений сервиса.",
     externalLink: { text: "читать решение задачи на vc.ru", href: "#" },
-    logoBg: "#ffef02",
+    logoBg: null,
     logoSrc: "assets/yandexGo-logo.png",
     screens: [
       { src: "assets/1yandex-screens.png", width: "regular" },
@@ -113,7 +117,7 @@ const secondaryCompanies = [
     roleVariant: "offer",
     description: "Спроектировать интерфейс страницы Live-события по теннису для беттинг-приложения, включающий шапку события, группы маркетов с поиском, видеотрансляцию/лайвтрекер и купон ставок типа «Система».",
     externalLink: { text: "смотреть figma с решением", href: "#" },
-    logoBg: "#f52524",
+    logoBg: null,
     logoSrc: "assets/olimpbet-logo.png",
     screens: [
       { src: "assets/1olimpbet-screens.png", width: "regular" },
@@ -128,7 +132,7 @@ const secondaryCompanies = [
     roleVariant: "offer",
     description: "Спроектировать главный экран мобильного образовательного приложения для сотрудников компании с базовым курсом для новичков (с прогрессом), каталогом курсов, доступом к достижениям и возможностью обратиться в поддержку.",
     externalLink: { text: "смотреть figma с решением", href: "#" },
-    logoBg: "#2d75f6",
+    logoBg: null,
     logoSrc: "assets/gazprom-logo.png",
     screens: [
       { src: "assets/1gazprom-screens.png", width: "regular" },
@@ -143,7 +147,7 @@ const secondaryCompanies = [
     roleVariant: "offer",
     description: "Спроектировать два экрана мобильного приложения для путешествий во времени: экран оформления полёта и экран оплаченного билета с ключевой информацией о поездке и возможностью сканирования/добавления билета в Wallet.",
     externalLink: { text: "смотреть figma с решением", href: "#" },
-    logoBg: "#000",
+    logoBg: null,
     logoSrc: "assets/1win-logo.png",
     screens: [
       { src: "assets/11win-screens.png", width: "regular" },
@@ -388,12 +392,24 @@ function createCaseLinks(cases, parent, companyId) {
   const list = document.createElement("div");
   list.className = parent === "mobile" ? "mobile-company__links" : "case-links";
 
-  (cases || []).forEach((title, index) => {
-    const link = document.createElement("a");
-    link.href = "case.html#" + encodeURIComponent(companyId) + "/" + index;
-    link.className = "case-link";
-    link.textContent = title;
-    list.appendChild(link);
+  (cases || []).forEach((item, index) => {
+    const title = typeof item === "string" ? item : item.title;
+    const pending = typeof item === "object" && item.pending;
+
+    if (pending) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "case-link case-link--pending";
+      btn.textContent = title;
+      btn.addEventListener("click", () => showToast("кейс в работе, скоро покажу"));
+      list.appendChild(btn);
+    } else {
+      const link = document.createElement("a");
+      link.href = "case.html#" + encodeURIComponent(companyId) + "/" + index;
+      link.className = "case-link";
+      link.textContent = title;
+      list.appendChild(link);
+    }
   });
 
   return list;
@@ -698,6 +714,27 @@ renderMobileNav();
 renderMobileCompany();
 setupObserver();
 setupScrollReveal();
+
+let toastTimer = null;
+
+function showToast(message) {
+  let toast = document.getElementById("site-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "site-toast";
+    toast.className = "site-toast";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.remove("site-toast--hidden");
+  toast.classList.add("site-toast--visible");
+
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("site-toast--visible");
+    toast.classList.add("site-toast--hidden");
+  }, 3000);
+}
 
 function setupScrollReveal() {
   const sections = document.querySelectorAll("#desktop-sections .company-section");

@@ -375,6 +375,105 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* ─── asis-wide: "как было" — изображения обрезаны снизу ──────── */
+.case-content .case-media--asis-wide {
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 47px 0;
+  gap: 21px;
+  width: 835px;
+  height: 370px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.case-content .case-media--asis-wide > .case-caption {
+  text-align: center;
+  flex-shrink: 0;
+  margin: 0;
+}
+.case-content .case-media--asis-wide .asis-row {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  width: 100%;
+  flex-shrink: 0;
+}
+.case-content .asis-img-clip {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  height: 285px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.case-content .asis-img-clip:last-child {
+  flex: 0 0 150px;
+  width: 150px;
+}
+.case-content .asis-img-clip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ─── hypothesis-cards: 2×2 карточки гипотез ─────────────────── */
+.case-content .case-hypothesis-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 835px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+.case-content .hyp-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 183px;
+  box-sizing: border-box;
+}
+.case-content .hyp-card__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.case-content .hyp-card__metric {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: 'Google Sans', sans-serif;
+  line-height: 1.5;
+}
+.case-content .hyp-card__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  font-family: 'Google Sans', sans-serif;
+  flex: 1;
+  margin: 0;
+}
+.case-content .hyp-card__ratio {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  font-family: 'Google Sans', sans-serif;
+}
+
 /* ─── stacked: каждое изображение в своей белой карточке ─────── */
 .case-content .case-media--stacked {
   flex-direction: column;
@@ -411,6 +510,34 @@
   width: 835px;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* ─── blocks (Проблема: группы с gap 6px внутри, 16px между) ─── */
+.case-content .case-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 835px;
+}
+.case-content .case-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.case-content .case-block > p {
+  margin: 0;
+}
+.case-content .case-block-list {
+  margin: 0;
+  padding: 0 0 0 24px;
+  list-style: disc;
+}
+.case-content .case-block-list li {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  font-family: 'Google Sans', sans-serif;
+  padding-left: 4px;
 }
 
 /* ─── bullet list ────────────────────────────────────────────── */

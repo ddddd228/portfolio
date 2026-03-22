@@ -130,6 +130,22 @@
         });
         html += "</ul>";
       }
+      if (sec.blocks && sec.blocks.length) {
+        html += '<div class="case-blocks">';
+        sec.blocks.forEach(function (block) {
+          html += '<div class="case-block">';
+          if (block.body) {
+            html += "<p>" + escapeHtml(block.body) + "</p>";
+          }
+          if (block.bulletItems && block.bulletItems.length) {
+            block.bulletItems.forEach(function (text) {
+              html += '<ul class="case-block-list"><li>' + escapeHtml(text) + "</li></ul>";
+            });
+          }
+          html += "</div>";
+        });
+        html += "</div>";
+      }
       if (sec.problemCards && sec.problemCards.length) {
         html += '<div class="case-problem-cards">';
         sec.problemCards.forEach(function (text) {
@@ -142,6 +158,30 @@
         html += renderImages(sec);
       }
 
+      if (sec.hypothesisCards && sec.hypothesisCards.length) {
+        html += '<div class="case-hypothesis-cards">';
+        sec.hypothesisCards.forEach(function (card) {
+          html += '<div class="hyp-card">';
+          if (card.metrics && card.metrics.length) {
+            html += '<div class="hyp-card__metrics">';
+            card.metrics.forEach(function (m) {
+              html += '<span class="hyp-card__metric" style="background:' + escapeAttr(m.bg) + '">' + escapeHtml(m.text) + '</span>';
+            });
+            html += '</div>';
+          }
+          if (card.description) {
+            html += '<p class="hyp-card__desc">' + escapeHtml(card.description) + '</p>';
+          }
+          if (card.ratio) {
+            html += '<span class="hyp-card__ratio">' + escapeHtml(card.ratio) + '</span>';
+          }
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+      if (sec.body2) {
+        html += "<p>" + escapeHtml(sec.body2) + "</p>";
+      }
       if (sec.caption) {
         html += '<p class="case-caption">' + escapeHtml(sec.caption) + "</p>";
       }
@@ -153,6 +193,21 @@
       var out = "";
       var hasLabels = sec.images.some(function (img) { return img.label; });
       var layoutClass = sec.mediaLayout ? " case-media--" + sec.mediaLayout : "";
+
+      // asis-wide: карточка "как было" — изображения обрезаны снизу
+      if (sec.mediaLayout === "asis-wide") {
+        out += '<div class="case-media case-media--asis-wide">';
+        if (sec.beforeLabel) {
+          out += '<p class="case-caption">' + escapeHtml(sec.beforeLabel) + '</p>';
+        }
+        out += '<div class="asis-row">';
+        sec.images.forEach(function (img) {
+          out += '<div class="asis-img-clip"><img src="' + escapeAttr(img.src) + '" alt=""></div>';
+        });
+        out += '</div>';
+        out += '</div>';
+        return out;
+      }
 
       // before-only layout (только "как было" без "как стало")
       if (sec.beforeLabel && !sec.afterLabel) {
