@@ -596,6 +596,7 @@ function renderMobileNav() {
 function renderMobileCompany() {
   const item = allMobileCompanies[currentMobileIndex];
   mobileCompany.innerHTML = "";
+  mobileCompany.dataset.company = item.id || "";
 
   const header = document.createElement("div");
   header.className = "mobile-company__header";
