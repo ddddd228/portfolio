@@ -62,14 +62,16 @@
       if (!container) return;
       items.forEach(function (item) {
         var li = document.createElement("li");
-        var div = document.createElement("div");
-        div.className = "nav-item is-disabled";
-        div.appendChild(makeIcon(item, true));
+        var a = document.createElement("a");
+        var secId = (item.className || "").replace("secondary-", "");
+        a.href = "index.html#section-" + secId;
+        a.className = "nav-item";
+        a.appendChild(makeIcon(item, true));
         var label = document.createElement("span");
         label.className = "nav-item__label";
         label.textContent = item.name;
-        div.appendChild(label);
-        li.appendChild(div);
+        a.appendChild(label);
+        li.appendChild(a);
         container.appendChild(li);
       });
     }

@@ -1,4 +1,4 @@
-const TELEGRAM_URL = "#";
+const TELEGRAM_URL = "https://t.me/ddesigner02";
 
 const experiences = [
   {
@@ -47,8 +47,8 @@ const experiences = [
     icon: "overchat",
     logo: "overchat",
     cases: [
-      { title: "увеличение конверсии в регистрацию", pending: false },
-      { title: "создание кроссплатформенной дс", pending: true },
+      { title: "увеличение конверсии в регистрацию" },
+      { title: "создание кроссплатформенной дс", href: "https://www.figma.com/design/HRShWdySgFO4x8dNIjt3M1/ELMO-DS---cross-platform?node-id=0-1&t=lq6uE9rmDSXKHmUC-1" },
     ],
     screens: [
       { src: "assets/1overchat-screens.png", width: "regular" },
@@ -78,6 +78,9 @@ const experiences = [
       "Спроектировал с нуля визуальный язык продукта, вывели продукт в MVP-версию, дополнительно разработал масштабируемый UI-kit и внедрил фичи шифрования на базе Matrix.",
     icon: "chums",
     logo: "chums",
+    cases: [
+      { title: "смотреть фигму проекта", href: "https://www.figma.com/design/657WPc2ttgrUlpkIDz9kgV/%E2%98%82%EF%B8%8F-Chums--%D0%9C%D0%B5%D1%81%D1%81%D0%B5%D0%BD%D0%B4%D0%B6%D0%B5%D1%80?node-id=1-4&t=y7QY869j1EuGjtp9-1" },
+    ],
     screens: [
       { src: "assets/1churms-screens.png", width: "narrow" },
       { src: "assets/2churms-screens.png", width: "narrow" },
@@ -101,7 +104,7 @@ const secondaryCompanies = [
     role: "Прошел до следующего этапа",
     roleVariant: "default",
     description: "Спроектировать масштабируемую карточку аренды в сервисе «Бери Заряд», которая позволит арендовать 2+ пауэрбанков с одного аккаунта и показать полный пользовательский флоу аренды нескольких устройств с учетом ограничений сервиса.",
-    externalLink: { text: "читать решение задачи на vc.ru", href: "#" },
+    externalLink: { text: "читать решение задачи на vc.ru", href: "https://vc.ru/design/2011404-dizajn-process-dlja-produktovogo-dizajnera" },
     logoBg: null,
     logoSrc: "assets/yandexGo-logo.png",
     screens: [
@@ -116,7 +119,7 @@ const secondaryCompanies = [
     role: "Оффер",
     roleVariant: "offer",
     description: "Спроектировать интерфейс страницы Live-события по теннису для беттинг-приложения, включающий шапку события, группы маркетов с поиском, видеотрансляцию/лайвтрекер и купон ставок типа «Система».",
-    externalLink: { text: "смотреть figma с решением", href: "#" },
+    externalLink: { text: "смотреть figma с решением", href: "https://www.figma.com/design/QC342HCgqycg6hfZzrVrMO/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-olimpbet--%D0%90%D1%80%D0%B0%D0%BA%D0%B5%D0%BB%D0%BE%D0%B2-%D0%94%D0%94--Copy-?node-id=1-9&t=zDy7zW1notIbD6D4-1" },
     logoBg: null,
     logoSrc: "assets/olimpbet-logo.png",
     screens: [
@@ -131,7 +134,7 @@ const secondaryCompanies = [
     role: "Оффер",
     roleVariant: "offer",
     description: "Спроектировать главный экран мобильного образовательного приложения для сотрудников компании с базовым курсом для новичков (с прогрессом), каталогом курсов, доступом к достижениям и возможностью обратиться в поддержку.",
-    externalLink: { text: "смотреть figma с решением", href: "#" },
+    externalLink: { text: "смотреть figma с решением", href: "https://www.figma.com/design/gfPRxZPgJEPDkSb4ONI0KN/%D0%93%D0%B0%D0%B7%D0%BF%D1%80%D0%BE%D0%BC-ID---%D0%90%D1%80%D0%B0%D0%BA%D0%B5%D0%BB%D0%BE%D0%B2-%D0%94%D0%94?node-id=1-7&t=5qXGurlycmr0EIbP-1" },
     logoBg: null,
     logoSrc: "assets/gazprom-logo.png",
     screens: [
@@ -146,7 +149,7 @@ const secondaryCompanies = [
     role: "Оффер",
     roleVariant: "offer",
     description: "Спроектировать два экрана мобильного приложения для путешествий во времени: экран оформления полёта и экран оплаченного билета с ключевой информацией о поездке и возможностью сканирования/добавления билета в Wallet.",
-    externalLink: { text: "смотреть figma с решением", href: "#" },
+    externalLink: { text: "смотреть figma с решением", href: "https://www.figma.com/design/6y1FADMXzxLdQ3Y17RkKJx/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5--%D0%90%D1%80%D0%B0%D0%BA%D0%B5%D0%BB%D0%BE%D0%B2-%D0%94%D0%94?node-id=0-1&t=59KfFX6DCYGJT6rz-1" },
     logoBg: null,
     logoSrc: "assets/1win-logo.png",
     screens: [
@@ -161,7 +164,7 @@ const secondaryCompanies = [
     role: "Прошел до следующего этапа",
     roleVariant: "default",
     description: "Провести UX-ревью экранов Main Screen и Profile: проанализировать текущие интерфейсные решения, выделить сильные и слабые стороны с аргументацией и предложить улучшенную версию экранов, исправляющую выявленные проблемы.",
-    externalLink: { text: "смотреть figma с решением", href: "#" },
+    externalLink: { text: "смотреть figma с решением", href: "https://www.figma.com/design/07lbcuzQdmxyXog6BQsKeN/find-my-kids--%D0%94%D0%B0%D0%BD%D0%B8%D0%BB%D0%B0-%D0%90%D1%80%D0%B0%D0%BA%D0%B5%D0%BB%D0%BE%D0%B2?node-id=0-1&t=ytkVdcEv7mVQl8Uv-1" },
     logoBg: null,
     logoSrc: "assets/FindMyKids-logo.png",
     screens: [
@@ -395,6 +398,7 @@ function createCaseLinks(cases, parent, companyId) {
   (cases || []).forEach((item, index) => {
     const title = typeof item === "string" ? item : item.title;
     const pending = typeof item === "object" && item.pending;
+    const externalHref = typeof item === "object" && item.href ? item.href : null;
 
     if (pending) {
       const btn = document.createElement("button");
@@ -405,9 +409,13 @@ function createCaseLinks(cases, parent, companyId) {
       list.appendChild(btn);
     } else {
       const link = document.createElement("a");
-      link.href = "case.html#" + encodeURIComponent(companyId) + "/" + index;
+      link.href = externalHref || ("case.html#" + encodeURIComponent(companyId) + "/" + index);
       link.className = "case-link";
       link.textContent = title;
+      if (externalHref) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
       list.appendChild(link);
     }
   });
